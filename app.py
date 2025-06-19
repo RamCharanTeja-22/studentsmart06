@@ -2107,9 +2107,7 @@ def debug_fix_file(listing_id):
 def cofounders_profile():
     return send_file('cofundersprofiles.html')
 # Always create DB tables, even in production
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-        create_admin_user()
-    app.run(host="0.0.0.0", port=80, debug=False)
+with app.app_context():
+    db.create_all()
+    create_admin_user()
 
